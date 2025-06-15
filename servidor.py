@@ -4,7 +4,7 @@ import random
 import string
 
 app = Flask(__name__)
-socketio = SocketIO(app)
+socketio = SocketIO(app, async_mode='threading')
 
 jugadores = {}
 letra_actual = ''
@@ -37,4 +37,4 @@ def recibir_respuestas(data):
     emit('jugadores_actualizados', jugadores, broadcast=True)
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=5000)
+    socketio.run(app, host='0.0.0.0', port=5050)
