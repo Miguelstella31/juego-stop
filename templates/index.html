@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego STOP</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+    <script src="/static/script.js"></script>
+</head>
+<body>
+    <h1>Juego STOP</h1>
+    <div id="registro">
+        <p>Ingresa tu nombre: <input id="nombre" /><button onclick="registrarse()">Unirse</button></p>
+    </div>
+
+    <div id="juego" style="display:none;">
+        <h2>Letra actual: <span id="letra"></span></h2>
+        <button onclick="nuevaRonda()">Nueva Ronda</button>
+
+        <form id="formulario">
+            Nombre: <input id="nombre_categoria"><br>
+            Apellido: <input id="apellido"><br>
+            Ciudad: <input id="ciudad"><br>
+            Color: <input id="color"><br>
+            Animal: <input id="animal"><br>
+            <button type="submit">Enviar Respuestas</button>
+        </form>
+
+        <h3>Puntajes:</h3>
+        <ul id="puntajes"></ul>
+    </div>
+</body>
+</html>
