@@ -5,11 +5,18 @@
     <title>Juego STOP</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
     <script src="/static/script.js"></script>
+    <script>
+        var expectedPlayers = {{ expected_players if expected_players is not none else 'null' }};
+    </script>
 </head>
 <body>
     <h1>Juego STOP</h1>
     <div id="registro">
         <p>Ingresa tu nombre: <input id="nombre" /><button onclick="registrarse()">Unirse</button></p>
+    </div>
+
+    <div id="espera" style="display:none;">
+        <p>Esperando jugadores... (<span id="cuenta"></span>)</p>
     </div>
 
     <div id="juego" style="display:none;">

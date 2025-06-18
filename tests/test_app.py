@@ -9,3 +9,9 @@ def test_index_route():
     with app.test_client() as client:
         response = client.get('/')
         assert response.status_code == 200
+
+
+def test_index_route_with_count():
+    with app.test_client() as client:
+        response = client.get('/?count=2')
+        assert response.status_code == 200

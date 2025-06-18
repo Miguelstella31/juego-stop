@@ -9,7 +9,7 @@ function registrarse() {
     }
     socket.emit("unirse", { nombre: miNombre });
     document.getElementById("registro").style.display = "none";
-    document.getElementById("juego").style.display = "block";
+    document.getElementById("espera").style.display = "block";
 }
 
 function nuevaRonda() {
@@ -18,6 +18,8 @@ function nuevaRonda() {
 
 socket.on("letra", function(letra) {
     document.getElementById("letra").innerText = letra;
+    document.getElementById("espera").style.display = "none";
+    document.getElementById("juego").style.display = "block";
 });
 
 document.getElementById("formulario").addEventListener("submit", function(e) {
@@ -43,4 +45,10 @@ socket.on("jugadores_actualizados", function(jugadores) {
     for (var jugador in jugadores) {
         lista.innerHTML += "<li>" + jugador + ": " + jugadores[jugador].puntos + " pts</li>";
     }
+});
+
+socket.on("esperando", function(data) {
+    document.getElementById("cuenta").innerText = data.actual + "/" + data.esperados;
+    document.getElementById("espera").style.display = "block";
+    document.getElementById("juego").style.display = "none";
 });
