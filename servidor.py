@@ -52,7 +52,7 @@ def index():
 @socketio.on('unirse')
 def unirse(data):
     nombre = data['nombre']
-    jujugadores[nombre] = {'puntos': 0, 'respuestas': {}, 'puntos_ronda': 0}
+    jugadores[nombre] = {'puntos': 0, 'respuestas': {}, 'puntos_ronda': 0}
     emit('jugadores_actualizados', jugadores, broadcast=True)
 
 @socketio.on('nueva_ronda')
